@@ -5,6 +5,9 @@ services:
     image: portainer/portainer-ce:2.18.3
     networks:
       - web
+    ports:
+      - "9000:9000"
+      - "9443:9443"
     labels:
       - traefik.enable=true
       - traefik.http.routers.${COMPOSE_PROJECT_NAME}-${SERVER_TYPE}.rule=Host(`${COMPOSE_PROJECT_NAME}.${DOMAIN}`)
