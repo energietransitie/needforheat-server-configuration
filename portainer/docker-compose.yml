@@ -14,7 +14,7 @@ services:
       - traefik.http.routers.${COMPOSE_PROJECT_NAME}-${SERVER_TYPE}.middlewares=private-network-ipwhitelist-${COMPOSE_PROJECT_NAME}-${SERVER_TYPE}
       - traefik.http.middlewares.private-network-ipwhitelist-${COMPOSE_PROJECT_NAME}-${SERVER_TYPE}.ipwhitelist.sourcerange=${IP_WHITELIST}
     volumes:
-      - data:/data
+      - portainer_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
     restart: always
@@ -22,4 +22,5 @@ networks:
   web:
     external: true
 volumes:
-  data: {}
+  portainer_data:
+    external: true
