@@ -26,7 +26,7 @@ This environment variable is used to set the database password.
 
 Example values: `78sb6g654b56sdv7s89dv` or `as78sdv78sfdv67sdv5dc8sdv09sv`
 
-### `IP_Whitelist`
+### `IP_WHITELIST`
 
 This environment variable is used to set the allowed IPs (or ranges of allowed IPs by using CIDR notation).
 

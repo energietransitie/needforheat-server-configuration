@@ -6,12 +6,13 @@ services:
     networks:
       - web
     labels:
+      - traefik.enable=true
       - traefik.http.routers.cloudbeaver-prd.rule=Host(`db.energietransitiewindesheim.nl`)
       - traefik.http.routers.cloudbeaver-prd.tls=true
       - traefik.http.routers.cloudbeaver-prd.tls.certresolver=lets-encrypt
       - traefik.http.services.cloudbeaver-prd.loadbalancer.server.port=8978
       - traefik.http.routers.cloudbeaver-prd.middlewares=private-network-ipwhitelist-cb
-      - traefik.http.middlewares.private-network-ipwhitelist-cb.ipwhitelist.sourcerange= $IP_Whitelist
+      - traefik.http.middlewares.private-network-ipwhitelist-cb.ipwhitelist.sourcerange= ${IP_WHITELIST}
     volumes:
       - data:/opt/cloudbeaver/workspace
     restart: unless-stopped

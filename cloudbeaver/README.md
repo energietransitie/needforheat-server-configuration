@@ -20,7 +20,7 @@ cloudbeaver/tst/docker-compose.yml
 
 ## Environment variables
 
-### `IP_Whitelist`
+### `IP_WHITELIST`
 
 This environment variable is used to set the allowed IPs (or ranges of allowed IPs by using CIDR notation).
 

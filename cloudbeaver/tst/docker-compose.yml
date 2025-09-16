@@ -6,12 +6,13 @@ services:
     networks:
       - web
     labels:
+      - traefik.enable=true
       - traefik.http.routers.cloudbeaver-tst.rule=Host(`db.tst.energietransitiewindesheim.nl`)
       - traefik.http.routers.cloudbeaver-tst.tls=true
       - traefik.http.routers.cloudbeaver-tst.tls.certresolver=lets-encrypt
       - traefik.http.services.cloudbeaver-tst.loadbalancer.server.port=8978
       - traefik.http.routers.cloudbeaver-tst.middlewares=private-network-ipwhitelist-cb
-      - traefik.http.middlewares.private-network-ipwhitelist-cb.ipwhitelist.sourcerange= $IP_Whitelist
+      - traefik.http.middlewares.private-network-ipwhitelist-cb.ipwhitelist.sourcerange= ${IP_WHITELIST}
     volumes:
       - data:/opt/cloudbeaver/workspace
     restart: unless-stopped
